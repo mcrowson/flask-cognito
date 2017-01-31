@@ -1,0 +1,9 @@
+__title__ = 'Flask-Cognito'
+__description__ = 'AWS Cognito User Auth for Flask Applications'
+__url__ = 'https://github.com/mcrowson/flask-cognito'
+__version_info__ = ('0', '0', '1')
+__version__ = '.'.join(__version_info__)
+__author__ = 'Matthew Crowson'
+__author_email__ = 'matthew.d.crowson@gmail.com'
+__license__ = 'MIT'
+__copyright__ = '(c) 2017 by Matthew Crowson'

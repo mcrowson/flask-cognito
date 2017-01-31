@@ -2,6 +2,10 @@ import os
 import re
 from setuptools import setup
 
+about = {}
+with open('flask_cognito/__about__.py') as f:
+    exec(f.read(), about)
+
 # Set external files
 try:
     from pypandoc import convert
@@ -15,27 +19,20 @@ with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as f:
 with open(os.path.join(os.path.dirname(__file__), 'test_requirements.txt')) as f:
     test_required = f.read().splitlines()
 
-with open('flask-cognito/__init__.py', 'r') as fd:
-    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
-                        fd.read(), re.MULTILINE).group(1)
-
-if not version:
-    raise RuntimeError('Cannot find version information')
-
 setup(
-    name='flask-cognito',
-    version=version,
-    packages=['flask-cognito'],
+    name=about['__title__'],
+    version=about['__version__'],
+    url=about['__url__'],
+    license=about['__license__'],
+    author=about['__author__'],
+    author_email=about['__author_email__'],
+    description=about['__description__'],
+    packages=['flask_cognito'],
     install_requires=required,
     tests_require=test_required,
     test_suite='nose.collector',
     include_package_data=True,
-    license='MIT License',
-    description='AWS Cognito User Auth for Flask Applications',
     long_description=README,
-    url='https://github.com/mcrowson/flask-cognito',
-    author='Matthew Crowson',
-    author_email='matthew.d.crowson@gmail.com',
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
